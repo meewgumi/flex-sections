@@ -452,19 +452,19 @@
         {{ cart.items.last.product_id }}
           <script>
             fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ cart.items.last.product_id }}&limit=4&intent=related")
-  .then(response => response.json())
-  .then(({ products }) => {
-    if (products.length > 0) {
-      const firstRecommendedProduct = products[0];
+              .then(response => response.json())
+              .then(({ products }) => {
+                if (products.length > 0) {
+                  const firstRecommendedProduct = products[0];
 
-      alert(
-        `The title of the first recommended product is: ${firstRecommendedProduct.title}`
-      );
-    }
-  }
-);
-</script>
-{% endif %}
+                  alert(
+                    `The title of the first recommended product is: ${firstRecommendedProduct.title}`
+                  );
+                }
+              }
+            );
+          </script>
+        {% endif %}
         {% comment %} End recommendations {% endcomment %}
       </cart-drawer-items>
       <div class="drawer__footer">

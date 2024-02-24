@@ -447,9 +447,11 @@
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
         {% comment %} Start recommendations {% endcomment %}
+        {% if cart != empty %}
         <h1>Recommended products</h1>
+        {{ cart.items.last.product_id }}
           <script>
-            fetch(window.Shopify.routes.root + "recommendations/products.json?product_id=8498653823216&limit=4&intent=related")
+            fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ cart.items.last.product_id }}&limit=4&intent=related")
   .then(response => response.json())
   .then(({ products }) => {
     if (products.length > 0) {
@@ -462,6 +464,7 @@
   }
 );
 </script>
+{% endif %}
         {% comment %} End recommendations {% endcomment %}
       </cart-drawer-items>
       <div class="drawer__footer">

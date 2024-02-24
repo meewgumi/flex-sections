@@ -446,6 +446,23 @@
           </div>
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
+        {% comment %} Start recommendations {% endcomment %}
+        <h1>Recommended products</h1>
+          <script>
+            fetch(window.Shopify.routes.root + "recommendations/products.json?product_id=8498653823216&limit=4&intent=related")
+  .then(response => response.json())
+  .then(({ products }) => {
+    if (products.length > 0) {
+      const firstRecommendedProduct = products[0];
+
+      alert(
+        `The title of the first recommended product is: ${firstRecommendedProduct.title}`
+      );
+    }
+  }
+);
+</script>
+        {% comment %} End recommendations {% endcomment %}
       </cart-drawer-items>
       <div class="drawer__footer">
 

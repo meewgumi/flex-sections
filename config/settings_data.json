@@ -131,13 +131,19 @@
     "blocks": {
       "1206128725646818650": {
         "type": "shopify:\/\/apps\/amp-conversion\/blocks\/app-embed\/04a7ddf7-3a4c-4228-9a44-33ba2380f058",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "override_url": ""
         }
       },
       "6065014864672580889": {
         "type": "shopify:\/\/apps\/slide-cart-by-amp\/blocks\/app-embed\/0a410b8d-7dc4-4f2d-b4e8-c12d34fd2255",
+        "disabled": true,
+        "settings": {
+        }
+      },
+      "14952540001915115444": {
+        "type": "shopify:\/\/apps\/upcart-cart-drawer\/blocks\/app-embed\/af3da5fb-f5f7-40ec-8273-41bf50059d4b",
         "disabled": false,
         "settings": {
         }

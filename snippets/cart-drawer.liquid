@@ -438,6 +438,8 @@
                   </tbody>
                 </table>
               </div>
+              {% comment %} {% render 'related-products-snippet-cart' %} {% endcomment %}
+
             {%- endif -%}
             <p id="CartDrawer-LiveRegionText" class="visually-hidden" role="status"></p>
             <p id="CartDrawer-LineItemStatus" class="visually-hidden" aria-hidden="true" role="status">
@@ -445,13 +447,12 @@
             </p>
           </div>
           <div id="CartDrawer-CartErrors" role="alert"></div>
+
         </form>
         {% comment %} Start recommendations {% endcomment %}
-        {% if cart != empty %}
-        <h1>Recommended products</h1>
-        {{ cart.items.last.product_id }}
+        {{ cart.items.first.product_id }}
           <script>
-            fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ cart.items.last.product_id }}&limit=4&intent=related")
+            fetch(window.Shopify.routes.root + "recommendations/products.json?product_id={{ cart.items.first.product_id }}&limit=4&intent=related")
               .then(response => response.json())
               .then(({ products }) => {
                 if (products.length > 0) {
@@ -464,11 +465,10 @@
               }
             );
           </script>
-        {% endif %}
         {% comment %} End recommendations {% endcomment %}
       </cart-drawer-items>
       <div class="drawer__footer">
-
+        {% comment %} {% section 'related-products-cards' %} {% endcomment %}
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
             <summary>

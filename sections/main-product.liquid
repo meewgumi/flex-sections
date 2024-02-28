@@ -76,22 +76,16 @@
       {{ handlename.system.handle }},
     {% endfor %}
   </p>
-  <p>Matching?
-  {% for handlename in shop.metaobjects.craftsmanship.values %}
-    {% for tag in product.tags %}
-    {% if handlename.system.handle == tag %}
-      {{ tag }}
-      {% assign variable1 = "shop.metaobjects.craftsmanship." %}
-      {% assign variable2 = tag %}
-      {% assign variable3 = ".details" %}
-      {% assign combinedVariable = variable1 | append: variable2 | append: variable3 %}
-      {{ combinedVariable }}
-    {% endif %}
-  {% endfor %}
-  {% endfor %}
-</p>
-    {{ shop.metaobjects.craftsmanship.craftsmanship-denim.details | metafield_tag }}
-    {{ combinedVariable | metafield_tag }}
+    <p>Matching?
+      {% for tag in product.tags %}
+      {% case tag %}
+      {% when 'craftsmanship-denim' %}
+        {{ shop.metaobjects.craftsmanship.craftsmanship-denim.details | metafield_tag }}
+      {% when 'craftsmanship-linen' %}
+        {{ shop.metaobjects.craftsmanship.craftsmanship-ufe6ovgm.details | metafield_tag }}
+      {% endcase %}
+    {% endfor %}
+  </p>
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
     <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
       {% render 'product-media-gallery', variant_images: variant_images %}

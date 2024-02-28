@@ -43,29 +43,10 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
-    },
-    "17082329450c687d69": {
-      "type": "apps",
-      "blocks": {
-        "specialized_portfolio_app_star_rating_dAhMdG": {
-          "type": "shopify:\/\/apps\/specialized-portfolio-app\/blocks\/star_rating\/81612f39-7da4-4ad7-9776-437ec96a8362",
-          "settings": {
-            "product": "broken-firefly",
-            "colour": "#ff0000"
-          }
-        }
-      },
-      "block_order": [
-        "specialized_portfolio_app_star_rating_dAhMdG"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
     "announcement-bar",
-    "header",
-    "17082329450c687d69"
+    "header"
   ]
 }
